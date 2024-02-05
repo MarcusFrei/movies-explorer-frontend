@@ -1,0 +1,8 @@
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__link {
+  margin: 0 8px;
+}

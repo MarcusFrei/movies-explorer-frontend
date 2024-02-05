@@ -1,0 +1,13 @@
+.navtab_link {
+  margin: 0 5px;
+  border-radius: 10px;
+  background: #303030;
+  padding: 10px 0 10px;
+  cursor: pointer;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  width: 96px;
+  display: inline-block;
+}

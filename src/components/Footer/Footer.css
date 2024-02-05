@@ -1,0 +1,33 @@
+.footer {
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  max-width: 1140px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.footer__title {
+  color: #8b8b8b;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #424242;
+  margin-bottom: 20px;
+}
+
+.footer__block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__link:first-child {
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 720px) and (max-width: 1145px) {
+  .footer {
+    max-width: 708px;
+  }
+}

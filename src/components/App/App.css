@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #202020;
+  color: white;
+  font-family: 'Inter';
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.App {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.main-section {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .main-section {
+    max-width: 668px;
+  }
+}
