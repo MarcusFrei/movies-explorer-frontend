@@ -1,23 +1,23 @@
 import React from 'react';
+import './Profile.css';
 
 const Profile = (props) => {
   return (
-    <section>
-      <h1>Привет, Марк!</h1>
-      <div>
-        <div>
-          <p></p>
-          <input></input>
+    <section className="profile">
+      <h1 className="profile__header">Привет, Марк!</h1>
+      <form className="profile__form">
+        <div className="profile-row">
+          <span className="profile-row__desc">Имя</span>
+          <input className="profile-row__input" value="Mark" />
         </div>
-        <div>
-          <p></p>
-          <input></input>
+        <hr className="profile-line" />
+        <div className="profile-row">
+          <span className="profile-row__desc">E-mail</span>
+          <input className="profile-row__input" value="test@test.com" />
         </div>
-      </div>
-      <div>
-        <button>Редактировать</button>
-        <button>Выйти из аккаунта</button>
-      </div>
+        <button className="profile__sbmt-btn">Редактировать</button>
+      </form>
+      <button className="profile-logout">Выйти из аккаунта</button>
     </section>
   );
 };

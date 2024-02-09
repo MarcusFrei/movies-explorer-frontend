@@ -4,33 +4,23 @@ import '../../vendor/fonts.css';
 import './App.css';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Login from '../Auth/Login/Login';
 import Register from '../Auth/Register/Register';
 import Movies from '../Movies/Movies';
+import Profile from '../Auth/Profile/Profile';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
-  const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(navigate);
-  console.log(pathname);
-  const getHeader = () => {
-    if (
-      pathname === '/' ||
-      pathname === '/movies' ||
-      pathname === '/saved-movies'
-    )
-      return <Header isAuth={true} />;
-  };
-
-  const getFooter = () => {
-    if (
-      pathname === '/' ||
-      pathname === '/movies' ||
-      pathname === '/saved-movies'
-    )
-      return <Footer />;
-  };
+  const isHeaderFooterNeeded = [
+    '/',
+    '/movies',
+    '/saved-movies',
+    '/profile',
+  ].includes(pathname);
+  const getHeader = () => isHeaderFooterNeeded && <Header isAuth={true} />;
+  const getFooter = () => isHeaderFooterNeeded && <Footer />;
   return (
     <div className="App">
       {getHeader()}
@@ -39,6 +29,8 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/movies" element={<Movies />} />
+        <Route path="/saved-movies" element={<SavedMovies />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       {getFooter()}
     </div>

@@ -1,8 +1,22 @@
 .navigation {
   display: flex;
   align-items: center;
+  padding-left: 50px;
 }
 
 .navigation__link {
   margin: 0 8px;
+}
+
+.burger-menu__btn {
+  background-image: url(../../images/burger-menu-btn.svg);
+  background-repeat: no-repeat;
+  object-fit: contain;
+  width: 44px;
+  aspect-ratio: 1/1;
+  padding: 11px 8px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }

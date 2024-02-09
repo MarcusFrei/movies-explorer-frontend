@@ -7,6 +7,7 @@
   max-width: 1140px;
   margin: 0 auto;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .footer__title {
@@ -29,5 +30,38 @@
 @media screen and (min-width: 720px) and (max-width: 1145px) {
   .footer {
     max-width: 708px;
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .footer {
+    max-width: 300px;
+  }
+  .footer__title {
+    text-align: center;
+    padding-bottom: 21px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .footer__block {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .footer__link:first-child {
+    margin-bottom: 12px;
+    margin-right: 0;
+  }
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    font-family: Inter;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .footer__block > span {
+    color: #8b8b8b;
   }
 }

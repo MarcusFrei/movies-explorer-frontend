@@ -35,7 +35,7 @@ const Login = (props) => {
           >
             Войти
           </button>
-          <p className="register-page__hint auth__hints">
+          <div className="register-page__hint auth__hints">
             Ещё не зарегистрированы?{' '}
             <Link
               to="/signup"
@@ -43,7 +43,7 @@ const Login = (props) => {
             >
               Регистрация
             </Link>
-          </p>
+          </div>
         </div>
       </form>
     </div>

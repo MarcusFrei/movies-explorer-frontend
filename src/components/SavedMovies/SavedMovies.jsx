@@ -1,9 +1,9 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import './Movies.css';
+import './SavedMovies.css';
 
-const Movies = (props) => {
+const SavedMovies = (props) => {
   return (
     <div className="movies">
       <SearchForm />
@@ -12,4 +12,4 @@ const Movies = (props) => {
   );
 };
 
-export default Movies;
+export default SavedMovies;

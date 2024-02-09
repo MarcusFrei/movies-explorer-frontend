@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './Techs.css';
 
-const Techs = (props) => {
+const Techs = forwardRef((props, ref) => {
   return (
-    <section className="techs__section">
+    <section className="techs__section" ref={ref}>
       <div className="techs">
         <h3 className="techs__title">Технологии</h3>
         <h4 className="techs__subtitle">7 технологий</h4>
@@ -23,6 +23,6 @@ const Techs = (props) => {
       </div>
     </section>
   );
-};
+});
 
 export default Techs;

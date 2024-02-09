@@ -29,3 +29,23 @@
     margin-bottom: 60px;
   }
 }
+
+@media screen and (max-width: 719px) {
+  .movies-list__films {
+    max-width: 300px;
+    margin-bottom: 60px;
+    margin: 0 auto 63px auto;
+  }
+
+  .movies-list__button {
+    font-size: 12px;
+    line-height: 15px;
+    max-width: 240px;
+    width: 100%;
+    padding: 11px 0 9px 0;
+  }
+  .movies-list__films {
+    row-gap: 59px;
+    margin-bottom: 63px;
+  }
+}

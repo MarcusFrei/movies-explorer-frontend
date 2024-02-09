@@ -1,3 +1,9 @@
 .login-page__inputs-block {
   margin-bottom: 169px;
 }
+
+@media screen and (max-width: 719px) {
+  .login-page__inputs-block {
+    margin-bottom: 267px;
+  }
+}

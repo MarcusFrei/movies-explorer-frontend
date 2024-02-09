@@ -42,7 +42,7 @@ const Register = (props) => {
         >
           Зарегистрироваться
         </button>
-        <p className="register-page__hint auth__hints">
+        <div className="register-page__hint auth__hints">
           Уже зарегистрированы?{' '}
           <Link
             to="/signin"
@@ -50,7 +50,7 @@ const Register = (props) => {
           >
             Войти
           </Link>
-        </p>
+        </div>
       </form>
     </div>
   );

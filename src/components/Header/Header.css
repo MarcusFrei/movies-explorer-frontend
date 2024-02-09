@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: 18px 70px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .header__logo {
@@ -43,4 +44,25 @@
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
+}
+
+@media screen and (min-width: 720px) and (max-width: 1145px) {
+  .header {
+    max-width: 708px;
+    margin: 0 auto 0;
+    padding: 18px 0;
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .header {
+    max-width: 100%;
+    margin: 0;
+    padding: 18px 0;
+    align-items: center;
+    padding: 18px 14px;
+  }
+  .header > a {
+    height: 38px;
+  }
 }
