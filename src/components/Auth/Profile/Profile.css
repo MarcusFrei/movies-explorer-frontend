@@ -3,6 +3,7 @@
   flex-direction: column;
   margin: 0 auto;
   max-width: 410px;
+  margin-bottom: 70px;
 }
 
 .profile__header {
@@ -69,7 +70,13 @@
   text-align: left;
 }
 
-@media screen and (max-width: 719px) {
+@media (max-width: 1199px) {
+  .profile {
+    margin-bottom: 269px;
+  }
+}
+
+@media (max-width: 420px) {
   .profile {
     margin-top: 70px;
   }

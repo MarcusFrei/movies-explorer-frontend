@@ -13,7 +13,7 @@ const SearchForm = (props) => {
             placeholder="Фильм"
             required
           />
-          <button className="search-form__btn-sbmt" type="button"></button>
+          <button className="search-form__btn-sbmt" type="submit"></button>
         </div>
       </div>
       <div className="short-film__block">

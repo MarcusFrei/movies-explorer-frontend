@@ -11,7 +11,8 @@
   margin: 0 auto;
 }
 
-.auth__header > img {
+.auth__header_link {
+  display: inline-block;
   margin-bottom: 40px;
 }
 
@@ -56,6 +57,7 @@
   border-style: none;
   margin-bottom: 20px;
   outline: none;
+  color: white;
 }
 
 .auth__input:last-child {

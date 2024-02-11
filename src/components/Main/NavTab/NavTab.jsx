@@ -7,15 +7,27 @@ const NavTab = ({ projectRef, techsRef, studentRef }) => {
   };
   return (
     <div className="navtab">
-      <span className="navtab_link" onClick={() => scrollToRef(projectRef)}>
+      <button
+        className="navtab_link"
+        onClick={() => scrollToRef(projectRef)}
+        type="button"
+      >
         О проекте
-      </span>
-      <span className="navtab_link" onClick={() => scrollToRef(techsRef)}>
+      </button>
+      <button
+        className="navtab_link"
+        onClick={() => scrollToRef(techsRef)}
+        type="button"
+      >
         Технологии
-      </span>
-      <span className="navtab_link" onClick={() => scrollToRef(studentRef)}>
+      </button>
+      <button
+        className="navtab_link"
+        onClick={() => scrollToRef(studentRef)}
+        type="button"
+      >
         Студент
-      </span>
+      </button>
     </div>
   );
 };

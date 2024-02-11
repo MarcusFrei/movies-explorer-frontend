@@ -61,6 +61,7 @@
 @media screen and (min-width: 720px) and (max-width: 1145px) {
   .about-me {
     margin-bottom: 91px;
+    max-width: 95%;
   }
   .about-me__name {
     font-size: 40px;
@@ -87,9 +88,6 @@
 }
 
 @media screen and (max-width: 719px) {
-  .about-me {
-    max-width: 292px;
-  }
   .about-me__section {
     margin-bottom: 70px;
   }

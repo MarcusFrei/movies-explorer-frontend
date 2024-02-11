@@ -100,7 +100,6 @@
 
 @media screen and (max-width: 719px) {
   .about-project {
-    max-width: 284px;
     padding-bottom: 69px;
   }
   .about-project__title {
@@ -128,7 +127,7 @@
     line-height: 18px;
   }
   .about-project__time {
-    grid-template-columns: 100px 184px;
+    grid-template-columns: 1fr 1.84fr;
     text-align: center;
   }
   .about-project__week-green {

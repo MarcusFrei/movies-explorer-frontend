@@ -95,7 +95,6 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 719px) {
   .search-form {
-    max-width: 292px;
     margin: 0 auto;
     margin-bottom: 50px;
   }

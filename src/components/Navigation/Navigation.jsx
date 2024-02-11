@@ -32,10 +32,20 @@ const Navigation = ({ isAuth }) => {
   const renderDesktopNav = () => (
     <>
       <div className="navigation">
-        <Link to="/movies" className="navigation__link">
+        <Link
+          to="/movies"
+          className={`navigation__link ${
+            pathname === '/movies' ? 'navigation__link_active' : ''
+          }`}
+        >
           Фильмы
         </Link>
-        <Link to="/saved-movies" className="navigation__link">
+        <Link
+          to="/saved-movies"
+          className={`navigation__link ${
+            pathname === '/saved-movies' ? 'navigation__link_active' : ''
+          }`}
+        >
           Сохраненные фильмы
         </Link>
       </div>

@@ -9,7 +9,9 @@ const Register = (props) => {
   return (
     <div className="register-page auth">
       <div className="auth__header">
-        <img src={logo} className="" alt="logo" />
+        <Link to="/" className="auth__header_link">
+          <img src={logo} alt="logo" />
+        </Link>
         <h1 className="register-page__title auth__title">Добро пожаловать!</h1>
       </div>
       <form className="register-page__form auth__form">
