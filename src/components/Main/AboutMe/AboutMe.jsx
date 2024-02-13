@@ -26,7 +26,7 @@ const AboutMe = forwardRef((props, ref) => {
             GitHub
           </a>
         </div>
-        <img src={avatar} alt="My face" className="about-me__image" />
+        <img src={avatar} alt="Аватарка" className="about-me__image" />
       </div>
     </section>
   );

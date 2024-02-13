@@ -4,6 +4,7 @@
   margin: 0 auto;
   max-width: 410px;
   margin-bottom: 70px;
+  margin-top: 53px;
 }
 
 .profile__header {
@@ -87,6 +88,7 @@
 
   .profile__form {
     max-width: 260px;
+    margin: 0 auto;
   }
   .profile-row__input {
     margin-left: 76px;

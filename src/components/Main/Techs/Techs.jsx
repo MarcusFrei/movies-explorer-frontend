@@ -9,7 +9,7 @@ const Techs = forwardRef((props, ref) => {
         <h4 className="techs__subtitle">7 технологий</h4>
         <p className="techs__text">
           На курсе веб-разработки мы освоили технологии, которые применили в
-          дипломном проекте.
+          дипломном&nbsp;проекте.
         </p>
         <div className="techs__stack">
           <span className="techs__span">HTML</span>

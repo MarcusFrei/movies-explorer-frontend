@@ -6,7 +6,7 @@ const Promo = ({ projectRef, techsRef, studentRef }) => {
   return (
     <div className="promo">
       <h1 className="promo_title">
-        Учебный проект студента факультета Веб-разработки.
+        Учебный проект студента факультета&nbsp;Веб-разработки.
       </h1>
       <NavTab
         projectRef={projectRef}

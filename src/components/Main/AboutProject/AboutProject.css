@@ -17,8 +17,8 @@
 .about-project__table {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
-  margin-bottom: 110px;
+  gap: 43px;
+  margin-bottom: 113px;
 }
 
 .about-project__subtitle {
@@ -74,7 +74,7 @@
     padding-bottom: 90px;
   }
   .about-project__title {
-    margin-bottom: 80px;
+    margin-bottom: 74px;
   }
   .about-project__table {
     display: grid;
@@ -101,6 +101,7 @@
 @media screen and (max-width: 719px) {
   .about-project {
     padding-bottom: 69px;
+    max-width: 284px;
   }
   .about-project__title {
     font-size: 18px;
@@ -119,6 +120,7 @@
   .about-project__subtitle {
     max-width: 319px;
     margin-bottom: 16px;
+    font-size: 18px;
   }
   .about-project__text {
     font-size: 11px;

@@ -7,7 +7,7 @@ export default function Header({ onLogout, isAuth, email }) {
   return (
     <header className="header">
       <Link to={'/'}>
-        <img className="header__logo" src={logo} alt="Лого 'Movies'" />
+        <img className="header__logo" src={logo} alt="Логотип 'Movies'" />
       </Link>
       <Navigation isAuth={isAuth} onLogout={onLogout} email={email} />
     </header>

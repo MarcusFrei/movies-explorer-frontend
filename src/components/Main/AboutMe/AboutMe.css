@@ -62,6 +62,7 @@
   .about-me {
     margin-bottom: 91px;
     max-width: 95%;
+    padding: 0px 29px;
   }
   .about-me__name {
     font-size: 40px;
@@ -88,6 +89,10 @@
 }
 
 @media screen and (max-width: 719px) {
+  .about-me {
+    max-width: 284px;
+    margin-bottom: 69px;
+  }
   .about-me__section {
     margin-bottom: 70px;
   }

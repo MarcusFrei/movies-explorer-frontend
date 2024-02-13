@@ -25,7 +25,7 @@ const MoviesCard = ({ movie }) => {
       onMouseLeave={handleMouseLeave}
     >
       {' '}
-      <img src={filmImage} alt="Movie img" className="movies-card__img" />
+      <img src={filmImage} alt="картинка фильма" className="movies-card__img" />
       {pathname === '/movies' && isHovered && !inSaved && (
         <button className="add__movie-btn btn-card_position">Сохранить</button>
       )}
@@ -38,7 +38,6 @@ const MoviesCard = ({ movie }) => {
       <div className="movies-card__block">
         <h3 className="movies-card__title">{title}</h3>
         <p className="movies-card__time">{getDuration()}</p>
-        {/* <button onClick={() => console.log(title)}>KILL ME</button> */}
       </div>
       <a href="#"></a>
     </div>

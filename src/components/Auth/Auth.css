@@ -67,6 +67,7 @@
 .auth__btn_sbmt {
   border-radius: 3px;
   background: #4285f4;
+  color: white;
   padding: 13px 0 15px;
   text-align: center;
   font-size: 14px;
@@ -115,6 +116,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .auth__header_link {
+    margin-bottom: 45px;
   }
 
   .auth__form {

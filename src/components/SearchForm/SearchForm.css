@@ -3,10 +3,10 @@
   margin-bottom: 80px;
 }
 
-.search-form__input-container {
+.search-form__container {
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .search-form__input {
@@ -97,5 +97,14 @@ input:checked + .slider:before {
   .search-form {
     margin: 0 auto;
     margin-bottom: 50px;
+  }
+  .search-form__input {
+    padding: 13px 20px;
+  }
+  .search-form__container {
+    margin-bottom: 48px;
+  }
+  .short-film__span {
+    font-size: 11px;
   }
 }

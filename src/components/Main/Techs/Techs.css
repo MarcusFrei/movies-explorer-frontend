@@ -52,6 +52,7 @@
   cursor: pointer;
   width: 90px;
   display: inline-block;
+  font-size: 14px;
 }
 
 @media screen and (min-width: 720px) and (max-width: 1145px) {
@@ -70,9 +71,11 @@
   .techs__text {
     font-size: 12px;
     line-height: 18px;
+    margin-bottom: 80px;
   }
   .techs__span {
     width: 84px;
+    font-size: 12px;
   }
 }
 
@@ -80,13 +83,15 @@
   .techs {
     margin-bottom: 70px;
     max-height: 100%;
+    max-width: 284px;
   }
-
   .techs__section {
     background-color: transparent;
+    margin-bottom: 97px;
   }
   .techs__title {
-    margin: 70px 0 60px;
+    margin: 70px 0 66px;
+    font-size: 18px;
   }
   .techs__subtitle {
     font-size: 30px;
@@ -98,18 +103,18 @@
     font-size: 11px;
     line-height: 16px;
     letter-spacing: -0.04em;
+    margin-bottom: 50px;
   }
-
   .techs__stack {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 0 auto;
     gap: 10px;
-    padding-bottom: 70px;
   }
   .techs__span {
     font-size: 12px;
     line-height: 15px;
     letter-spacing: -0.04em;
+    margin: 0;
   }
 }

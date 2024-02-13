@@ -12,21 +12,21 @@ const Portfolio = (props) => {
           href="https://github.com/MarcusFrei/how-to-learn"
         >
           <span className="portfolio__link">Статичный сайт</span>
-          <img src={arrow} alt="arrow" />
+          <img src={arrow} alt="Стрелочка" />
         </a>
         <a
           className="portfolio__list_item"
           href="https://github.com/MarcusFrei/russian-travel"
         >
           <span className="portfolio__link">Адаптивный сайт</span>
-          <img src={arrow} alt="arrow" />
+          <img src={arrow} alt="Стрелочка" />
         </a>
         <a
           className="portfolio__list_item"
           href="https://github.com/MarcusFrei/mesto"
         >
           <span className="portfolio__link">Одностраничное приложение</span>
-          <img src={arrow} alt="arrow" />
+          <img src={arrow} alt="Стрелочка" />
         </a>
       </div>
     </section>

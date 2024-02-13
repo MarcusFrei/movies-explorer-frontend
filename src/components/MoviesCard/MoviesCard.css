@@ -91,16 +91,15 @@
 @media screen and (max-width: 719px) {
   .movies-card__img {
     max-height: 168px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .movies-card__title {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     line-height: 15px;
   }
   .movies-card__time {
     padding: 4px 8px;
-    font-family: Inter;
     font-size: 11px;
     line-height: 10px;
   }

@@ -50,9 +50,8 @@
   .header {
     max-width: 100%;
     margin: 0;
-    padding: 18px 0;
     align-items: center;
-    padding: 18px 14px;
+    padding: 18px 3px 18px 10px;
   }
   .header > a {
     height: 38px;

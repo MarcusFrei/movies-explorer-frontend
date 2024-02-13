@@ -9,7 +9,7 @@ const Login = (props) => {
     <div className="login-page auth">
       <div className="auth__header">
         <Link to="/" className="auth__header_link">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="Логотип" />
         </Link>
         <h1 className="login-page__title auth__title">Рады видеть!</h1>
       </div>

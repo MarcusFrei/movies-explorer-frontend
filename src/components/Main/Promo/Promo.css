@@ -6,7 +6,7 @@
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
-  margin-bottom: 110px;
+  margin-bottom: 100px;
 }
 
 .promo_title {
@@ -24,6 +24,7 @@
     max-width: 728px;
     padding-top: 350px;
     padding-bottom: 30px;
+    margin-top: 20px;
     margin-bottom: 90px;
   }
 

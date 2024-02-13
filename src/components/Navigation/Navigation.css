@@ -29,3 +29,9 @@
   border: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 719px) {
+  .burger-menu__btn {
+    background-size: 37px;
+  }
+}
