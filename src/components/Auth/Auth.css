@@ -6,12 +6,13 @@
   padding: 70px 0;
 }
 
-.auth__header {
+.auth-header {
   width: 396px;
   margin: 0 auto;
 }
 
-.auth__header > img {
+.auth-header__link {
+  display: inline-block;
   margin-bottom: 40px;
 }
 
@@ -56,15 +57,17 @@
   border-style: none;
   margin-bottom: 20px;
   outline: none;
+  color: white;
 }
 
 .auth__input:last-child {
   margin-bottom: 0;
 }
 
-.auth__btn_sbmt {
+.auth__btn-sbmt {
   border-radius: 3px;
   background: #4285f4;
+  color: white;
   padding: 13px 0 15px;
   text-align: center;
   font-size: 14px;
@@ -99,5 +102,44 @@
 @media screen and (max-width: 768px) {
   .auth {
     padding: 232px 0;
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .auth {
+    max-width: 260px;
+    padding: 56px 0 30px;
+  }
+
+  .auth__header {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .auth__header_link {
+    margin-bottom: 45px;
+  }
+
+  .auth__form {
+    width: 260px;
+  }
+  .auth__hints {
+    margin: 0;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+  }
+  .auth__hint-link {
+    font-size: 12px;
+  }
+  .auth__header > img {
+    margin-bottom: 50px;
+  }
+  .auth__btn_sbmt {
+    margin-bottom: 14px;
   }
 }

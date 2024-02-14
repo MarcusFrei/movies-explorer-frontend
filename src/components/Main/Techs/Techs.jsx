@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './Techs.css';
 
-const Techs = (props) => {
+const Techs = forwardRef((props, ref) => {
   return (
-    <section className="techs__section">
-      <div className="techs">
+    <section className="techs" ref={ref}>
+      <div className="techs__block">
         <h3 className="techs__title">Технологии</h3>
         <h4 className="techs__subtitle">7 технологий</h4>
         <p className="techs__text">
@@ -23,6 +23,6 @@ const Techs = (props) => {
       </div>
     </section>
   );
-};
+});
 
 export default Techs;

@@ -1,3 +1,9 @@
 .register-page__inputs-block {
-  margin-bottom: 69px;
+  margin-bottom: 91px;
+}
+
+@media screen and (max-width: 719px) {
+  .register-page__inputs-block {
+    margin-bottom: 179px;
+  }
 }

@@ -4,42 +4,37 @@ import '../../vendor/fonts.css';
 import './App.css';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Login from '../Auth/Login/Login';
 import Register from '../Auth/Register/Register';
 import Movies from '../Movies/Movies';
+import Profile from '../Auth/Profile/Profile';
+import SavedMovies from '../SavedMovies/SavedMovies';
+import NotFound from '../NotFound/NotFound';
 
 function App() {
-  const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(navigate);
-  console.log(pathname);
-  const getHeader = () => {
-    if (
-      pathname === '/' ||
-      pathname === '/movies' ||
-      pathname === '/saved-movies'
-    )
-      return <Header isAuth={true} />;
-  };
+  const isHeaderNeeded = ['/', '/movies', '/saved-movies', '/profile'].includes(
+    pathname
+  );
+  const isFooterNeeded = ['/', '/movies', '/saved-movies'].includes(pathname);
 
-  const getFooter = () => {
-    if (
-      pathname === '/' ||
-      pathname === '/movies' ||
-      pathname === '/saved-movies'
-    )
-      return <Footer />;
-  };
+  const getHeader = () => isHeaderNeeded && <Header isAuth={true} />;
+  const getFooter = () => isFooterNeeded && <Footer />;
   return (
     <div className="App">
       {getHeader()}
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/signup" element={<Register />} />
-        <Route path="/signin" element={<Login />} />
-        <Route path="/movies" element={<Movies />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/signup" element={<Register />} />
+          <Route path="/signin" element={<Login />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/saved-movies" element={<SavedMovies />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
       {getFooter()}
     </div>
   );

@@ -20,8 +20,8 @@ const MoviesCardList = (props) => {
   return (
     <section className="movies-list">
       <ul className="movies-list__films">
-        {movies.map((item) => (
-          <MoviesCard movie={item} />
+        {movies.map((item, i) => (
+          <MoviesCard movie={item} key={i} />
         ))}
       </ul>
       <button className="movies-list__button">Ещё</button>

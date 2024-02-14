@@ -7,8 +7,10 @@ import logo from '../../../images/logo.svg';
 const Login = (props) => {
   return (
     <div className="login-page auth">
-      <div className="auth__header">
-        <img src={logo} className="" alt="logo" />
+      <div className="auth-header">
+        <Link to="/" className="auth-header__link">
+          <img src={logo} alt="Логотип" />
+        </Link>
         <h1 className="login-page__title auth__title">Рады видеть!</h1>
       </div>
       <form className="login-page__form auth__form">
@@ -31,11 +33,11 @@ const Login = (props) => {
           </div>
           <button
             type="submit"
-            className="login-page__submit-btn auth__btn_sbmt"
+            className="login-page__submit-btn auth__btn-sbmt"
           >
             Войти
           </button>
-          <p className="register-page__hint auth__hints">
+          <div className="login-page__hint auth__hints">
             Ещё не зарегистрированы?{' '}
             <Link
               to="/signup"
@@ -43,7 +45,7 @@ const Login = (props) => {
             >
               Регистрация
             </Link>
-          </p>
+          </div>
         </div>
       </form>
     </div>

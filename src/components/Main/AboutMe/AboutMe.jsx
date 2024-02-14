@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './AboutMe.css';
 import avatar from '../../../images/kot.png';
 
-const AboutMe = (props) => {
+const AboutMe = forwardRef((props, ref) => {
   return (
-    <section className="about-me main-section">
-      <h3 className="about-me__title about-project__title">Студент</h3>
+    <section className="about-me main-section" ref={ref}>
+      <h3 className="about-me__title">Студент</h3>
       <div className="about-me__block">
         <div className="about-me__onlytext">
           <h2 className="about-me__name">Марк</h2>
@@ -26,10 +26,10 @@ const AboutMe = (props) => {
             GitHub
           </a>
         </div>
-        <img src={avatar} alt="My face" className="about-me__image" />
+        <img src={avatar} alt="Аватарка" className="about-me__image" />
       </div>
     </section>
   );
-};
+});
 
 export default AboutMe;

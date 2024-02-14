@@ -9,11 +9,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
-  row-gap: 59px;
-  margin-bottom: 78px;
+  row-gap: 56px;
+  margin-bottom: 72px;
 }
 
 .movies-list__button {
+  font-size: 12px;
+  line-height: 14.5px;
   padding: 11px 144px 9px;
   border-radius: 6px;
   border: 1px solid #424242;
@@ -27,5 +29,23 @@
   .movies-list__films {
     row-gap: 47px;
     margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .movies-list__films {
+    max-width: 300px;
+    margin-bottom: 60px;
+    margin: 0 auto 63px auto;
+    row-gap: 32px;
+    margin-bottom: 63px;
+  }
+
+  .movies-list__button {
+    font-size: 12px;
+    line-height: 15px;
+    max-width: 240px;
+    width: 100%;
+    padding: 11px 0 9px 0;
   }
 }

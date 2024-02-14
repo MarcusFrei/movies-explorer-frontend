@@ -5,18 +5,16 @@ const SearchForm = (props) => {
   return (
     <form className="search-form" noValidate>
       <div className="search-form__container">
-        <div className="search-form__input-container">
-          <input
-            className="search-form__input"
-            type="text"
-            minLength={2}
-            placeholder="Фильм"
-            required
-          />
-          <button className="search-form__btn-sbmt" type="button"></button>
-        </div>
+        <input
+          className="search-form__input"
+          type="text"
+          minLength={2}
+          placeholder="Фильм"
+          required
+        />
+        <button className="search-form__btn-sbmt" type="submit"></button>
       </div>
-      <div className="short-film__block">
+      <div className="short-film">
         <label className="toggle-switch">
           <input type="checkbox" />
           <span className="slider"></span>

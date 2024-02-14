@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import filmImage from '../../../images/film-img.jpeg';
+import filmImage from '../../images/film-img.jpeg';
 import { useLocation } from 'react-router-dom';
 import './MoviesCard.css';
 
@@ -19,13 +19,13 @@ const MoviesCard = ({ movie }) => {
     setIsHovered(false);
   };
   return (
-    <div
+    <li
       className="movies-card"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {' '}
-      <img src={filmImage} alt="Movie img" className="movies-card__img" />
+      <img src={filmImage} alt="картинка фильма" className="movies-card__img" />
       {pathname === '/movies' && isHovered && !inSaved && (
         <button className="add__movie-btn btn-card_position">Сохранить</button>
       )}
@@ -33,15 +33,14 @@ const MoviesCard = ({ movie }) => {
         <span className="added__movie-btn btn-card_position"></span>
       )}
       {pathname === '/saved-movies' && isHovered && (
-        <button className="add__movie-btn">Удалить</button>
+        <button className="delete__movie-btn btn-card_position"></button>
       )}
       <div className="movies-card__block">
         <h3 className="movies-card__title">{title}</h3>
         <p className="movies-card__time">{getDuration()}</p>
-        {/* <button onClick={() => console.log(title)}>KILL ME</button> */}
       </div>
       <a href="#"></a>
-    </div>
+    </li>
   );
 };
 
