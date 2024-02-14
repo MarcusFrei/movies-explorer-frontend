@@ -7,8 +7,8 @@ import logo from '../../../images/logo.svg';
 const Login = (props) => {
   return (
     <div className="login-page auth">
-      <div className="auth__header">
-        <Link to="/" className="auth__header_link">
+      <div className="auth-header">
+        <Link to="/" className="auth-header__link">
           <img src={logo} alt="Логотип" />
         </Link>
         <h1 className="login-page__title auth__title">Рады видеть!</h1>
@@ -33,11 +33,11 @@ const Login = (props) => {
           </div>
           <button
             type="submit"
-            className="login-page__submit-btn auth__btn_sbmt"
+            className="login-page__submit-btn auth__btn-sbmt"
           >
             Войти
           </button>
-          <div className="register-page__hint auth__hints">
+          <div className="login-page__hint auth__hints">
             Ещё не зарегистрированы?{' '}
             <Link
               to="/signup"

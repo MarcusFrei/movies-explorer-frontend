@@ -1,10 +1,10 @@
-.techs__section {
+.techs {
   background-color: #272727;
   min-height: 625px;
   margin-bottom: 110px;
 }
 
-.techs {
+.techs__block {
   max-width: 1140px;
   margin: 0 auto;
   margin-bottom: 110px;
@@ -49,7 +49,6 @@
   border-radius: 10px;
   background: #303030;
   padding: 21px 0;
-  cursor: pointer;
   width: 90px;
   display: inline-block;
   font-size: 14px;
@@ -61,7 +60,7 @@
     margin-bottom: 90px;
     max-height: 567px;
   }
-  .techs__section {
+  .techs__block {
     margin-bottom: 90px;
     min-height: 567px;
   }
@@ -85,12 +84,12 @@
     max-height: 100%;
     max-width: 284px;
   }
-  .techs__section {
+  .techs__block {
     background-color: transparent;
     margin-bottom: 97px;
   }
   .techs__title {
-    margin: 70px 0 66px;
+    margin: 70px 0 65px;
     font-size: 18px;
   }
   .techs__subtitle {

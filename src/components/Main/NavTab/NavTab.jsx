@@ -8,21 +8,21 @@ const NavTab = ({ projectRef, techsRef, studentRef }) => {
   return (
     <div className="navtab">
       <button
-        className="navtab_link"
+        className="navtab__link"
         onClick={() => scrollToRef(projectRef)}
         type="button"
       >
         О проекте
       </button>
       <button
-        className="navtab_link"
+        className="navtab__link"
         onClick={() => scrollToRef(techsRef)}
         type="button"
       >
         Технологии
       </button>
       <button
-        className="navtab_link"
+        className="navtab__link"
         onClick={() => scrollToRef(studentRef)}
         type="button"
       >

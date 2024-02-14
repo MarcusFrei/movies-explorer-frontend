@@ -5,7 +5,7 @@ import avatar from '../../../images/kot.png';
 const AboutMe = forwardRef((props, ref) => {
   return (
     <section className="about-me main-section" ref={ref}>
-      <h3 className="about-me__title about-project__title">Студент</h3>
+      <h3 className="about-me__title">Студент</h3>
       <div className="about-me__block">
         <div className="about-me__onlytext">
           <h2 className="about-me__name">Марк</h2>

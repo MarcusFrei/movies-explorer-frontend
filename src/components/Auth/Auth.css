@@ -6,12 +6,12 @@
   padding: 70px 0;
 }
 
-.auth__header {
+.auth-header {
   width: 396px;
   margin: 0 auto;
 }
 
-.auth__header_link {
+.auth-header__link {
   display: inline-block;
   margin-bottom: 40px;
 }
@@ -64,7 +64,7 @@
   margin-bottom: 0;
 }
 
-.auth__btn_sbmt {
+.auth__btn-sbmt {
   border-radius: 3px;
   background: #4285f4;
   color: white;

@@ -74,6 +74,13 @@
 @media (max-width: 1199px) {
   .profile {
     margin-bottom: 269px;
+    margin-top: 231px;
+  }
+  .profile__header {
+    margin-bottom: 97px;
+  }
+  .profile__sbmt-btn {
+    margin-top: 211px;
   }
 }
 
@@ -91,13 +98,17 @@
     margin: 0 auto;
   }
   .profile-row__input {
-    margin-left: 76px;
+    margin-left: 68px;
   }
   .profile__sbmt-btn {
     margin: 379px auto 16px auto;
+    font-size: 11px;
+    letter-spacing: 0.8px;
   }
 
   .profile-logout {
     margin-bottom: 16px;
+    font-size: 11px;
+    letter-spacing: 0.8px;
   }
 }

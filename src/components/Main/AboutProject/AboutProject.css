@@ -121,12 +121,13 @@
     max-width: 319px;
     margin-bottom: 16px;
     font-size: 18px;
+    line-height: 121%;
   }
   .about-project__text {
     font-size: 11px;
     line-height: 16px;
     letter-spacing: 0em;
-    line-height: 18px;
+    line-height: 16px;
   }
   .about-project__time {
     grid-template-columns: 1fr 1.84fr;

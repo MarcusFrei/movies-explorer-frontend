@@ -1,6 +1,5 @@
-// import React, { useState } from 'react';
-// import { auth } from '../../../api/auth';
 import { Link } from 'react-router-dom';
+import React from 'react';
 import './../Auth.css';
 import './Register.css';
 import logo from '../../../images/logo.svg';
@@ -8,8 +7,8 @@ import logo from '../../../images/logo.svg';
 const Register = (props) => {
   return (
     <div className="register-page auth">
-      <div className="auth__header">
-        <Link to="/" className="auth__header_link">
+      <div className="auth-header">
+        <Link to="/" className="auth-header__link">
           <img src={logo} alt="Логотип" />
         </Link>
         <h1 className="register-page__title auth__title">Добро пожаловать!</h1>
@@ -40,7 +39,7 @@ const Register = (props) => {
         </div>
         <button
           type="submit"
-          className="register-page__submit-btn auth__btn_sbmt"
+          className="register-page__submit-btn auth__btn-sbmt"
         >
           Зарегистрироваться
         </button>

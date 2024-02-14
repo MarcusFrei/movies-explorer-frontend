@@ -14,7 +14,7 @@ const SearchForm = (props) => {
         />
         <button className="search-form__btn-sbmt" type="submit"></button>
       </div>
-      <div className="short-film__block">
+      <div className="short-film">
         <label className="toggle-switch">
           <input type="checkbox" />
           <span className="slider"></span>

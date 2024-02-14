@@ -3,13 +3,13 @@ import './Techs.css';
 
 const Techs = forwardRef((props, ref) => {
   return (
-    <section className="techs__section" ref={ref}>
-      <div className="techs">
+    <section className="techs" ref={ref}>
+      <div className="techs__block">
         <h3 className="techs__title">Технологии</h3>
         <h4 className="techs__subtitle">7 технологий</h4>
         <p className="techs__text">
           На курсе веб-разработки мы освоили технологии, которые применили в
-          дипломном&nbsp;проекте.
+          дипломном проекте.
         </p>
         <div className="techs__stack">
           <span className="techs__span">HTML</span>

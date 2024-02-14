@@ -8,6 +8,7 @@
 @media screen and (min-width: 720px) and (max-width: 1145px) {
   .movies {
     max-width: 708px;
+    padding-top: 73px;
   }
 }
 

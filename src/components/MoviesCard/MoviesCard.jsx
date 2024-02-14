@@ -19,7 +19,7 @@ const MoviesCard = ({ movie }) => {
     setIsHovered(false);
   };
   return (
-    <div
+    <li
       className="movies-card"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -40,7 +40,7 @@ const MoviesCard = ({ movie }) => {
         <p className="movies-card__time">{getDuration()}</p>
       </div>
       <a href="#"></a>
-    </div>
+    </li>
   );
 };
 

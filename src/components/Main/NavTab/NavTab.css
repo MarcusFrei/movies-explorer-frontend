@@ -1,4 +1,4 @@
-.navtab_link {
+.navtab__link {
   margin: 0 5px;
   border-radius: 10px;
   background: #303030;
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 719px) {
-  .navtab_link {
+  .navtab__link {
     margin: 0 3px;
     padding: 5px 15.5px;
     font-size: 10px;

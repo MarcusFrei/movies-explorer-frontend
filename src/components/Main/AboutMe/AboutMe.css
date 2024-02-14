@@ -4,6 +4,11 @@
 
 .about-me__title {
   margin-bottom: 66px;
+  font-size: 22px;
+  letter-spacing: -0.88px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid #dadada;
+  font-weight: 400;
 }
 
 .about-me__name {
@@ -109,7 +114,7 @@
     max-width: 292px;
     max-height: 352px;
     border-radius: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 95px;
   }
   .about-me__name {
     font-size: 30px;
