@@ -106,6 +106,7 @@
     font-size: 18px;
     line-height: 22px;
     letter-spacing: -0.04em;
+    padding-bottom: 27px;
   }
   .about-me__block {
     flex-direction: column-reverse;
@@ -114,7 +115,7 @@
     max-width: 292px;
     max-height: 352px;
     border-radius: 10px;
-    margin-bottom: 95px;
+    margin-bottom: 97px;
   }
   .about-me__name {
     font-size: 30px;
@@ -124,6 +125,7 @@
   .about-me__job {
     font-size: 11px;
     line-height: 16px;
+    margin-bottom: 21px;
   }
   .about-me__text {
     margin: 0 auto 40px;
