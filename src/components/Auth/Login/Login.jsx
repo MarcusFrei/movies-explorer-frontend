@@ -1,17 +1,34 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 import './../Auth.css';
 import './Login.css';
 import logo from '../../../images/logo.svg';
 
-const Login = (props) => {
+const Login = ({ onSubmit }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(email, password);
+  };
   return (
     <div className="login-page auth">
-      <div className="auth__header">
-        <img src={logo} className="" alt="logo" />
+      <div className="auth-header">
+        <Link to="/" className="auth-header__link">
+          <img src={logo} alt="Логотип" />
+        </Link>
         <h1 className="login-page__title auth__title">Рады видеть!</h1>
       </div>
-      <form className="login-page__form auth__form">
+      <form onSubmit={handleSubmit} className="login-page__form auth__form">
         <div className="login-page__requirements auth__form-inputs">
           <div className="login-page__inputs-block">
             <p className="login-page__description auth__description">E-mail</p>
@@ -20,6 +37,8 @@ const Login = (props) => {
               placeholder="E-mail"
               name="email"
               type="email"
+              value={email}
+              onChange={(e) => handleEmailChange(e)}
             />
             <p className="login-page__description auth__description">Пароль</p>
             <input
@@ -27,15 +46,17 @@ const Login = (props) => {
               placeholder="Пароль"
               name="password"
               type="password"
+              value={password}
+              onChange={(e) => handlePasswordChange(e)}
             />
           </div>
           <button
             type="submit"
-            className="login-page__submit-btn auth__btn_sbmt"
+            className="login-page__submit-btn auth__btn-sbmt"
           >
             Войти
           </button>
-          <p className="register-page__hint auth__hints">
+          <div className="login-page__hint auth__hints">
             Ещё не зарегистрированы?{' '}
             <Link
               to="/signup"
@@ -43,7 +64,7 @@ const Login = (props) => {
             >
               Регистрация
             </Link>
-          </p>
+          </div>
         </div>
       </form>
     </div>

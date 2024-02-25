@@ -1,12 +1,33 @@
 import React from 'react';
 import './NavTab.css';
 
-const NavTab = (props) => {
+const NavTab = ({ projectRef, techsRef, studentRef }) => {
+  const scrollToRef = (ref) => {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <div className="navtab">
-      <span className="navtab_link">О проекте</span>
-      <span className="navtab_link">Технологии</span>
-      <span className="navtab_link">Студент</span>
+      <button
+        className="navtab__link"
+        onClick={() => scrollToRef(projectRef)}
+        type="button"
+      >
+        О проекте
+      </button>
+      <button
+        className="navtab__link"
+        onClick={() => scrollToRef(techsRef)}
+        type="button"
+      >
+        Технологии
+      </button>
+      <button
+        className="navtab__link"
+        onClick={() => scrollToRef(studentRef)}
+        type="button"
+      >
+        Студент
+      </button>
     </div>
   );
 };

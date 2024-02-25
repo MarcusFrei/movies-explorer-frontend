@@ -1,18 +1,39 @@
-// import React, { useState } from 'react';
-// import { auth } from '../../../api/auth';
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import './../Auth.css';
 import './Register.css';
 import logo from '../../../images/logo.svg';
 
-const Register = (props) => {
+const Register = ({ onSubmit }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(name, email, password);
+  };
   return (
     <div className="register-page auth">
-      <div className="auth__header">
-        <img src={logo} className="" alt="logo" />
+      <div className="auth-header">
+        <Link to="/" className="auth-header__link">
+          <img src={logo} alt="Логотип" />
+        </Link>
         <h1 className="register-page__title auth__title">Добро пожаловать!</h1>
       </div>
-      <form className="register-page__form auth__form">
+      <form onSubmit={handleSubmit} className="register-page__form auth__form">
         <div className="register-page__inputs-block">
           <p className="register-page__description auth__description">Имя</p>
           <input
@@ -20,6 +41,8 @@ const Register = (props) => {
             placeholder="Имя"
             name="name"
             type="string"
+            value={name}
+            onChange={(e) => handleNameChange(e)}
           />
           <p className="register-page__description auth__description">E-mail</p>
           <input
@@ -27,6 +50,8 @@ const Register = (props) => {
             placeholder="E-mail"
             name="email"
             type="email"
+            value={email}
+            onChange={handleEmailChange}
           />
           <p className="register-page__description auth__description">Пароль</p>
           <input
@@ -34,15 +59,17 @@ const Register = (props) => {
             placeholder="Пароль"
             name="password"
             type="password"
+            value={password}
+            onChange={handlePasswordChange}
           />
         </div>
         <button
           type="submit"
-          className="register-page__submit-btn auth__btn_sbmt"
+          className="register-page__submit-btn auth__btn-sbmt"
         >
           Зарегистрироваться
         </button>
-        <p className="register-page__hint auth__hints">
+        <div className="register-page__hint auth__hints">
           Уже зарегистрированы?{' '}
           <Link
             to="/signin"
@@ -50,7 +77,7 @@ const Register = (props) => {
           >
             Войти
           </Link>
-        </p>
+        </div>
       </form>
     </div>
   );

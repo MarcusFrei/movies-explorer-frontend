@@ -1,0 +1,123 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 410px;
+  margin-bottom: 70px;
+  margin-top: 53px;
+}
+
+.profile__header {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  text-align: center;
+  margin-bottom: 123px;
+  margin-top: 0;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.profile__sbmt-btn {
+  display: block;
+  color: white;
+  margin: 220px auto 16px auto;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.profile-logout {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+  color: #ee3465;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.profile__error {
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #ee3465;
+  cursor: pointer;
+}
+
+.profile-line {
+  margin: 16px 0;
+  border: none;
+  border-bottom: 1px solid #424242;
+}
+
+.profile-row__input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: white;
+  margin-left: 100px;
+  text-align: right;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.profile-row__desc {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13px;
+  text-align: left;
+}
+
+@media (max-width: 1199px) {
+  .profile {
+    margin-bottom: 269px;
+    margin-top: 231px;
+  }
+  .profile__header {
+    margin-bottom: 97px;
+  }
+  .profile__sbmt-btn {
+    margin-top: 211px;
+  }
+}
+
+@media (max-width: 420px) {
+  .profile {
+    margin-top: 70px;
+  }
+
+  .profile__header {
+    margin-bottom: 80px;
+  }
+
+  .profile__form {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  .profile-row__input {
+    margin-left: 68px;
+  }
+  .profile__sbmt-btn {
+    margin: 379px auto 16px auto;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+  }
+
+  .profile-logout {
+    margin-bottom: 16px;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+  }
+}

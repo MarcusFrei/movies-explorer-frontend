@@ -7,12 +7,20 @@
 body {
   background-color: #202020;
   color: white;
-  font-family: 'Inter';
+  font-family: 'Inter', 'Arial', sans-serif;
 }
 
 a {
   color: white;
   text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+button:hover {
+  opacity: 0.8;
 }
 
 img {
@@ -22,6 +30,9 @@ img {
 .App {
   max-width: 1280px;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-section {
@@ -29,8 +40,49 @@ img {
   margin: 0 auto;
 }
 
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+}
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 2s linear infinite;
+}
+.loader::after {
+  animation-delay: 1s;
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .main-section {
     max-width: 668px;
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .App {
+    max-width: 95%;
   }
 }
