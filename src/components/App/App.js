@@ -27,6 +27,8 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [copySavedMovies, setCopySavedMovies] = useState([]);
   const [user, setUser] = useState({});
+  const [isMooviesLoading, setIsMooviesLoading] = useState(false);
+  const [isSavedLoading, setIsSavedLoading] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -42,15 +44,16 @@ function App() {
         .checkToken(token)
         .then(() => {
           setIsAuth(true);
-          navigate('/movies');
-          fetchMovies();
+          navigate(pathname);
           fetchSavedMoview();
+          const localMovies = JSON.parse(localStorage.getItem('movies'));
+          if (localMovies) {
+            setMovies(localMovies);
+          }
         })
         .catch((e) => {
-          navigate('/signin');
+          navigate('/');
         });
-    } else {
-      navigate('/signin');
     }
   }, []);
 
@@ -67,7 +70,7 @@ function App() {
       .register(name, email, password)
       .then((data) => {
         setIsRegistrationSuccessful(true);
-        navigate('/signin');
+        handleAuth(email, password);
       })
       .catch((e) => setIsRegistrationSuccessful(false));
   };
@@ -79,31 +82,36 @@ function App() {
         localStorage.setItem('jwt', data.token);
         setIsRegistrationSuccessful(true);
         setIsAuth(true);
-        fetchMovies();
-        fetchSavedMoview();
-        navigate('/');
+        navigate('/movies');
       })
       .catch((e) => console.log(e));
   };
 
   const fetchSavedMoview = () => {
+    setIsSavedLoading(true);
     mainApi
       .getInitialCards()
       .then((data) => {
+        console.log(data);
         setSavedMovies(data.movies);
         setCopySavedMovies(data.movies);
+        setIsSavedLoading(false);
       })
       .catch((e) => console.log(e));
   };
 
   const fetchMovies = () => {
+    setIsMooviesLoading(true);
     moviesApi
       .getInitialCards()
       .then((data) => {
         const filterText = localStorage.getItem('searchText') || '';
         const isShort = localStorage.getItem('isShort') === 'true';
-        setMovies(filterMovies(data, filterText, isShort));
+        let tempMovies = filterMovies(data, filterText, isShort);
+        setMovies(tempMovies);
+        localStorage.setItem('movies', JSON.stringify(tempMovies));
         setMoviesCopy(data);
+        setIsMooviesLoading(false);
       })
       .catch((e) => console.log(e));
   };
@@ -111,15 +119,32 @@ function App() {
   const handleSetSavedMoovies = (arr) => {
     setSavedMovies(arr);
   };
-  const handleSetMoovies = (arr) => {
-    setMovies(arr);
-  };
+
   const addMovie = (movie) => {
+    console.log(movie);
     mainApi
       .addMovieInSaved(movie)
-      .then((data) => fetchSavedMoview())
+      .then((data) => {
+        fetchSavedMoview();
+      })
       .catch((e) => console.log(e));
   };
+
+  const isInSaved = (id) => {
+    const result =
+      savedMovies.find((movie) => movie.movieId === id) !== undefined;
+    // console.log('-----');
+    // console.log(id);
+    // console.log(savedMovies);
+    // console.log(result);
+    // console.log('-----');
+
+    return result;
+  };
+
+  useEffect(() => {
+    if (pathname === '/movies') fetchSavedMoview();
+  }, [pathname]);
 
   const findIdToDelete = (tempId) => {
     const idToDelete = savedMovies.find(
@@ -132,10 +157,7 @@ function App() {
     mainApi
       .deleteMovieFromSaved(movieID)
       .then((data) => {
-        const tempArr = [...savedMovies];
-        const index = tempArr.findIndex((movie) => movie._id === movieID);
-        tempArr.splice(index, 1);
-        setSavedMovies(tempArr);
+        fetchSavedMoview();
       })
       .catch((e) => console.log(e));
   };
@@ -170,14 +192,16 @@ function App() {
               element={
                 <ProtectedRoute
                   element={Movies}
+                  fetchMovies={fetchMovies}
                   savedMovies={savedMovies}
                   movies={movies}
                   moviesCopy={moviesCopy}
                   addMovie={addMovie}
                   deleteMovie={deleteMovie}
                   loggedIn={isAuth}
-                  handleSetMoovies={handleSetMoovies}
                   findIdToDelete={findIdToDelete}
+                  isMooviesLoading={isMooviesLoading}
+                  isInSaved={isInSaved}
                 />
               }
             />
@@ -193,6 +217,7 @@ function App() {
                   loggedIn={isAuth}
                   fetchSavedMoview={fetchSavedMoview}
                   moviesCopy={copySavedMovies}
+                  isMooviesLoading={isSavedLoading}
                 />
               }
             />
@@ -207,7 +232,6 @@ function App() {
                 />
               }
             />
-
             <Route path="/signin" element={<Login onSubmit={handleAuth} />} />
             <Route
               path="/signup"

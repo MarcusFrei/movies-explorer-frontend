@@ -6,12 +6,16 @@ import './MoviesCard.css';
 const MoviesCard = ({
   movie,
   addMovie,
+  isInSaved,
   deleteMovie,
   savedMovies,
+  isSaveShow,
   findIdToDelete,
 }) => {
   const { nameRU, duration, inSaved, image, trailerLink, _id, id } = movie;
   const [isHovered, setIsHovered] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+
   const { pathname } = useLocation();
   const getDuration = (incomeDuration) => {
     const hours = Math.floor(incomeDuration / 60);
@@ -26,12 +30,11 @@ const MoviesCard = ({
   };
 
   useEffect(() => {
-    if (savedMovies) {
-      isInSaved(id);
+    if (pathname === '/movies') {
+      //  console.log(nameRU + ' ' + isInSaved(id));
+      setIsSaved(isInSaved(id));
     }
   }, [savedMovies]);
-
-  const isInSaved = (id) => savedMovies.find((movie) => movie.movieId === id);
 
   return (
     <li
@@ -50,7 +53,7 @@ const MoviesCard = ({
           className="movies-card__img"
         />
       </a>
-      {pathname === '/movies' && isHovered && !isInSaved(id) && (
+      {pathname === '/movies' && !isSaved && (isSaveShow || isHovered) && (
         <button
           onClick={() => addMovie(movie)}
           className="add__movie-btn btn-card_position"
@@ -58,13 +61,13 @@ const MoviesCard = ({
           Сохранить
         </button>
       )}
-      {pathname === '/movies' && isInSaved(id) && (
+      {pathname === '/movies' && isSaved && (
         <span
           onClick={() => findIdToDelete(id)}
           className="added__movie-btn btn-card_position"
         ></span>
       )}
-      {pathname === '/saved-movies' && isHovered && (
+      {pathname === '/saved-movies' && (isSaveShow || isHovered) && (
         <button
           onClick={() => deleteMovie(_id)}
           className="delete__movie-btn btn-card_position"

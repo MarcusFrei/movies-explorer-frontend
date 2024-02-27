@@ -52,7 +52,7 @@ class MainApi {
       country: movie.country,
       director: movie.director,
       duration: movie.duration,
-      year: movie.duration.toString(),
+      year: movie.year.toString(),
       description: movie.description,
       image: `https://api.nomoreparties.co${movie.image.url}`,
       trailerLink: movie.trailerLink,
@@ -61,6 +61,8 @@ class MainApi {
       nameRU: movie.nameRU,
       nameEN: movie.nameEN,
     };
+    console.log(typeof movieToSend.duration);
+    console.log(movieToSend);
     return fetch(`${this._url}/movies`, {
       method: 'POST',
       headers: {

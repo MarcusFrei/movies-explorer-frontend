@@ -2,33 +2,33 @@ import React, { useEffect, useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import './Movies.css';
-import {
-  filterMoviesByText,
-  findShortMoviesInput,
-} from '../../utils/functions';
 
 const Movies = ({
   movies,
   addMovie,
   savedMovies,
-  handleSetMoovies,
   moviesCopy,
   findIdToDelete,
   deleteMovie,
+  isInSaved,
+  isMooviesLoading,
+  fetchMovies,
 }) => {
   return (
     <div className="movies">
       <SearchForm
-        handleSetMoovies={handleSetMoovies}
         moviesCopy={moviesCopy}
         movies={movies}
+        fetchMovies={fetchMovies}
       />
       <MoviesCardList
         movies={movies}
         findIdToDelete={findIdToDelete}
         addMovie={addMovie}
+        isInSaved={isInSaved}
         savedMovies={savedMovies}
         deleteMovie={deleteMovie}
+        isMooviesLoading={isMooviesLoading}
       />
     </div>
   );

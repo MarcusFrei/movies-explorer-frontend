@@ -8,6 +8,7 @@ const SavedMovies = ({
   deleteMovie,
   handleSetSavedMoovies,
   moviesCopy,
+  isMooviesLoading,
 }) => {
   useEffect(() => {
     return () => handleSetSavedMoovies(moviesCopy);
@@ -20,7 +21,12 @@ const SavedMovies = ({
         moviesCopy={moviesCopy}
         fetchSavedMoview={fetchSavedMoview}
       />
-      <MoviesCardList movies={movies} deleteMovie={deleteMovie} />
+
+      <MoviesCardList
+        movies={movies}
+        deleteMovie={deleteMovie}
+        isMooviesLoading={isMooviesLoading}
+      />
     </div>
   );
 };

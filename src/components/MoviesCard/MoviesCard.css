@@ -37,6 +37,7 @@
   font-weight: 500;
   line-height: normal;
   max-height: 16px;
+  overflow: hidden;
 }
 
 .movies-card__time {

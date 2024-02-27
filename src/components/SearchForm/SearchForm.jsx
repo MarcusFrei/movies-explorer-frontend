@@ -6,13 +6,22 @@ import { logDOM } from '@testing-library/react';
 
 const SearchForm = ({
   handleSetSavedMoovies,
-  handleSetMoovies,
   moviesCopy,
   movies,
+  fetchMovies,
 }) => {
   const [inputText, setInputText] = useState('');
   const [checkboxValue, setCheckBoxValue] = useState(false);
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (pathname === '/movies') {
+      fetchMovies();
+    }
+    if (pathname === '/saved-movies') {
+      handleSetSavedMoovies(filterMovies(moviesCopy, inputText, checkboxValue));
+    }
+  }, [checkboxValue]);
 
   const handleOnChangeText = (e) => {
     setInputText(e.target.value);
@@ -39,7 +48,7 @@ const SearchForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (pathname === '/movies') {
-      handleSetMoovies(filterMovies(moviesCopy, inputText, checkboxValue));
+      fetchMovies();
     }
     if (pathname === '/saved-movies') {
       handleSetSavedMoovies(filterMovies(moviesCopy, inputText, checkboxValue));

@@ -7,6 +7,7 @@ import logo from '../../../images/logo.svg';
 const Login = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -50,6 +51,7 @@ const Login = ({ onSubmit }) => {
               onChange={(e) => handlePasswordChange(e)}
             />
           </div>
+          <p className="profile__error">{error}</p>
           <button
             type="submit"
             className="login-page__submit-btn auth__btn-sbmt"

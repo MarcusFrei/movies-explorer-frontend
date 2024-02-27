@@ -9,22 +9,35 @@ const Profile = ({ changeUserInfo, logout }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [dsbButton, setDsbButton] = useState(true);
+  const [isDataChanged, setIsDataChanged] = useState(false);
 
   useEffect(() => {
     setName(user.name);
     setEmail(user.email);
-  }, []);
+  }, [user]);
+
+  useEffect(() => {
+    if (isDisabled()) {
+      setError(validateForm(name, email));
+      setDsbButton(true);
+    } else {
+      setError('');
+      setDsbButton(false);
+    }
+    setIsDataChanged(false);
+  }, [name, email]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const erroText = validateForm(name, email);
-    if (erroText) {
-      setError(erroText);
-      return;
-    } else {
+
+    try {
+      changeUserInfo(name, email);
+      setIsDataChanged(true);
       setError('');
+    } catch (error) {
+      setError('Проблема с backend частью');
+      setIsDataChanged(false);
     }
-    if (!isDisabled()) changeUserInfo(name, email);
   };
 
   const isDisabled = () =>
@@ -53,8 +66,16 @@ const Profile = ({ changeUserInfo, logout }) => {
           />
         </div>
         <p className="profile__error">{error}</p>
-
-        <button className="profile__sbmt-btn" type="submit">
+        {isDataChanged && (
+          <p className="profile__success">Вы изменили данные!</p>
+        )}
+        <button
+          disabled={dsbButton}
+          className={`profile__sbmt-btn ${
+            dsbButton ? 'profile__sbmt-btn-disabled' : ''
+          }`}
+          type="submit"
+        >
           Редактировать
         </button>
       </form>

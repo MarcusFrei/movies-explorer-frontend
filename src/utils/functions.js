@@ -7,7 +7,6 @@ export const filterMovies = (arr, searchText = '', isShort = false) => {
   if (isShort) {
     tempMovies = [...tempMovies].filter((item) => item.duration < 40);
   }
-  localStorage.setItem('movies', JSON.stringify(tempMovies));
   return tempMovies;
 };
 
@@ -16,6 +15,10 @@ export const validateForm = (name, email) => {
 
   if (!name) return 'Требуется заполнить поле имя!';
   if (!email) return 'Требуется заполнить поле E-mail!';
+
+  const regex = /^[a-zA-Zа-яА-Я\s\-]+$/;
+
+  if (!regex.test(name)) return 'Некорректное имя!';
 
   if (name.length < 2 || name.length > 30)
     return 'Имя должно быть длиной от 2 до 30 символов!';
