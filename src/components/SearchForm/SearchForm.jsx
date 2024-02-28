@@ -9,6 +9,7 @@ const SearchForm = ({
   moviesCopy,
   movies,
   fetchMovies,
+  handleSetMoovies,
 }) => {
   const [inputText, setInputText] = useState('');
   const [checkboxValue, setCheckBoxValue] = useState(false);
@@ -22,6 +23,10 @@ const SearchForm = ({
       handleSetSavedMoovies(filterMovies(moviesCopy, inputText, checkboxValue));
     }
   }, [checkboxValue]);
+
+  useEffect(() => {
+    if (inputText.trim() === '' && pathname === '/movies') handleSetMoovies([]);
+  }, [inputText]);
 
   const handleOnChangeText = (e) => {
     setInputText(e.target.value);
@@ -38,10 +43,12 @@ const SearchForm = ({
   useEffect(() => {
     if (pathname === '/movies') {
       const searchText = localStorage.getItem('searchText');
+      const data = JSON.parse(localStorage.getItem('movies'));
       const isShort = localStorage.getItem('isShort') === 'true';
       if (searchText) setInputText(searchText);
       if (isShort) setCheckBoxValue(true);
       else setCheckBoxValue(false);
+      if (data) handleSetMoovies(data);
     }
   }, []);
 

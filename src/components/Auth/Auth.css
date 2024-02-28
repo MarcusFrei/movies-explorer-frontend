@@ -80,6 +80,11 @@
   cursor: pointer;
 }
 
+.auth__btn-sbmt-disabled {
+  opacity: 0.5 !important;
+  cursor: auto;
+}
+
 .auth__hints {
   margin: 0 auto;
   color: #8b8b8b;

@@ -13,6 +13,7 @@ const Movies = ({
   isInSaved,
   isMooviesLoading,
   fetchMovies,
+  handleSetMoovies,
 }) => {
   return (
     <div className="movies">
@@ -20,6 +21,7 @@ const Movies = ({
         moviesCopy={moviesCopy}
         movies={movies}
         fetchMovies={fetchMovies}
+        handleSetMoovies={handleSetMoovies}
       />
       <MoviesCardList
         movies={movies}

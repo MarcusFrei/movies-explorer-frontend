@@ -9,6 +9,9 @@ const Register = ({ onSubmit }) => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
 
+  const isFormValid = () =>
+    email.trim() !== '' && password.trim() !== '' && name.trim() !== '';
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -65,7 +68,9 @@ const Register = ({ onSubmit }) => {
         </div>
         <button
           type="submit"
-          className="register-page__submit-btn auth__btn-sbmt"
+          className={`register-page__submit-btn auth__btn-sbmt ${
+            !isFormValid() ? 'auth__btn-sbmt-disabled' : ''
+          }`}
         >
           Зарегистрироваться
         </button>

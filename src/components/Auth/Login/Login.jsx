@@ -7,7 +7,8 @@ import logo from '../../../images/logo.svg';
 const Login = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+
+  const isFormValid = () => email.trim() !== '' && password.trim() !== '';
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -21,6 +22,7 @@ const Login = ({ onSubmit }) => {
     e.preventDefault();
     onSubmit(email, password);
   };
+
   return (
     <div className="login-page auth">
       <div className="auth-header">
@@ -39,7 +41,7 @@ const Login = ({ onSubmit }) => {
               name="email"
               type="email"
               value={email}
-              onChange={(e) => handleEmailChange(e)}
+              onChange={handleEmailChange}
             />
             <p className="login-page__description auth__description">Пароль</p>
             <input
@@ -48,13 +50,15 @@ const Login = ({ onSubmit }) => {
               name="password"
               type="password"
               value={password}
-              onChange={(e) => handlePasswordChange(e)}
+              onChange={handlePasswordChange}
             />
           </div>
-          <p className="profile__error">{error}</p>
           <button
             type="submit"
-            className="login-page__submit-btn auth__btn-sbmt"
+            className={`login-page__submit-btn auth__btn-sbmt ${
+              !isFormValid() ? 'auth__btn-sbmt-disabled' : ''
+            }`}
+            disabled={!isFormValid()}
           >
             Войти
           </button>

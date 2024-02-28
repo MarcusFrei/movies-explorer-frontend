@@ -50,11 +50,11 @@ const MoviesCardList = ({
       <ul className="movies-list__films">
         {movies
           .slice(0, pathname === '/movies' ? cardsCount : movies.length)
-          .map((item, i) => (
+          .map((item) => (
             <MoviesCard
               movie={item}
               isInSaved={isInSaved}
-              key={i}
+              key={item.id || item._id}
               addMovie={addMovie}
               deleteMovie={deleteMovie}
               savedMovies={savedMovies}
@@ -72,9 +72,7 @@ const MoviesCardList = ({
           </button>
         )}
       {movies.length === 0 && !isMooviesLoading && (
-        <h2 className="movies-list__not-found">
-          Я ничего для тебя не нашёл :(
-        </h2>
+        <h2 className="movies-list__not-found">Ничего не найдено ...</h2>
       )}
       {isMooviesLoading && <span className="loader"></span>}
     </section>

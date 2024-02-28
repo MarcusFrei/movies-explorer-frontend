@@ -44,7 +44,9 @@ function App() {
         .checkToken(token)
         .then(() => {
           setIsAuth(true);
-          navigate(pathname);
+          if (pathname === '/signin' || pathname === '/signup')
+            navigate('/movies');
+          else navigate(pathname);
           fetchSavedMoview();
           const localMovies = JSON.parse(localStorage.getItem('movies'));
           if (localMovies) {
@@ -100,24 +102,36 @@ function App() {
       .catch((e) => console.log(e));
   };
 
+  const filterMainMovies = () => {};
+
   const fetchMovies = () => {
-    setIsMooviesLoading(true);
-    moviesApi
-      .getInitialCards()
-      .then((data) => {
-        const filterText = localStorage.getItem('searchText') || '';
-        const isShort = localStorage.getItem('isShort') === 'true';
-        let tempMovies = filterMovies(data, filterText, isShort);
-        setMovies(tempMovies);
-        localStorage.setItem('movies', JSON.stringify(tempMovies));
-        setMoviesCopy(data);
-        setIsMooviesLoading(false);
-      })
-      .catch((e) => console.log(e));
+    const filterText = localStorage.getItem('searchText') || '';
+    const isShort = localStorage.getItem('isShort') === 'true';
+
+    if (moviesCopy.length > 0) {
+      let tempMovies = filterMovies(moviesCopy, filterText, isShort);
+      setMovies(tempMovies);
+      localStorage.setItem('movies', JSON.stringify(tempMovies));
+    } else {
+      setIsMooviesLoading(true);
+      moviesApi
+        .getInitialCards()
+        .then((data) => {
+          let tempMovies = filterMovies(data, filterText, isShort);
+          setMovies(tempMovies);
+          localStorage.setItem('movies', JSON.stringify(tempMovies));
+          setMoviesCopy(data);
+          setIsMooviesLoading(false);
+        })
+        .catch((e) => console.log(e));
+    }
   };
 
   const handleSetSavedMoovies = (arr) => {
     setSavedMovies(arr);
+  };
+  const handleSetMoovies = (arr) => {
+    setMovies(arr);
   };
 
   const addMovie = (movie) => {
@@ -202,6 +216,7 @@ function App() {
                   findIdToDelete={findIdToDelete}
                   isMooviesLoading={isMooviesLoading}
                   isInSaved={isInSaved}
+                  handleSetMoovies={handleSetMoovies}
                 />
               }
             />
