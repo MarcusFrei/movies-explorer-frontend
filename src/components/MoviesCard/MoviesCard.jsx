@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import filmImage from '../../images/film-img.jpeg';
 import { useLocation } from 'react-router-dom';
 import './MoviesCard.css';
 
@@ -12,7 +11,7 @@ const MoviesCard = ({
   isSaveShow,
   findIdToDelete,
 }) => {
-  const { nameRU, duration, inSaved, image, trailerLink, _id, id } = movie;
+  const { nameRU, duration, image, trailerLink, _id, id } = movie;
   const [isHovered, setIsHovered] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
 
@@ -31,7 +30,6 @@ const MoviesCard = ({
 
   useEffect(() => {
     if (pathname === '/movies') {
-      //  console.log(nameRU + ' ' + isInSaved(id));
       setIsSaved(isInSaved(id));
     }
   }, [savedMovies]);
@@ -77,7 +75,6 @@ const MoviesCard = ({
         <h3 className="movies-card__title">{nameRU}</h3>
         <p className="movies-card__time">{getDuration(duration)}</p>
       </div>
-      <a href="#"></a>
     </li>
   );
 };

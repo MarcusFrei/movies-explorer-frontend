@@ -61,8 +61,6 @@ class MainApi {
       nameRU: movie.nameRU,
       nameEN: movie.nameEN,
     };
-    console.log(typeof movieToSend.duration);
-    console.log(movieToSend);
     return fetch(`${this._url}/movies`, {
       method: 'POST',
       headers: {

@@ -94,15 +94,12 @@ function App() {
     mainApi
       .getInitialCards()
       .then((data) => {
-        console.log(data);
         setSavedMovies(data.movies);
         setCopySavedMovies(data.movies);
         setIsSavedLoading(false);
       })
       .catch((e) => console.log(e));
   };
-
-  const filterMainMovies = () => {};
 
   const fetchMovies = () => {
     const filterText = localStorage.getItem('searchText') || '';
@@ -135,11 +132,12 @@ function App() {
   };
 
   const addMovie = (movie) => {
-    console.log(movie);
     mainApi
       .addMovieInSaved(movie)
       .then((data) => {
-        fetchSavedMoview();
+        let temp = [...savedMovies, data];
+        setSavedMovies(temp);
+        setCopySavedMovies(temp);
       })
       .catch((e) => console.log(e));
   };
@@ -147,11 +145,6 @@ function App() {
   const isInSaved = (id) => {
     const result =
       savedMovies.find((movie) => movie.movieId === id) !== undefined;
-    // console.log('-----');
-    // console.log(id);
-    // console.log(savedMovies);
-    // console.log(result);
-    // console.log('-----');
 
     return result;
   };
@@ -171,7 +164,9 @@ function App() {
     mainApi
       .deleteMovieFromSaved(movieID)
       .then((data) => {
-        fetchSavedMoview();
+        let temp = [...savedMovies].filter((elem) => elem._id !== movieID);
+        setSavedMovies(temp);
+        setCopySavedMovies(temp);
       })
       .catch((e) => console.log(e));
   };

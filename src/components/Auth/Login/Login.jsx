@@ -1,22 +1,31 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './../Auth.css';
 import './Login.css';
 import logo from '../../../images/logo.svg';
+import { validateLoginForm } from '../../../utils/functions';
 
 const Login = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const isFormValid = () => email.trim() !== '' && password.trim() !== '';
+  const [validationError, setValidationError] = useState('');
+  const [btnDsb, setBtnDsb] = useState(true);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    setValidationError(validateLoginForm(e.target.value, password));
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+    setValidationError(validateLoginForm(email, e.target.value));
   };
+
+  useEffect(() => {
+    if (validateLoginForm(email, password)) {
+      setBtnDsb(true);
+    } else setBtnDsb(false);
+  }, [email, password]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,12 +62,13 @@ const Login = ({ onSubmit }) => {
               onChange={handlePasswordChange}
             />
           </div>
+          {validationError && <p className="auth__error">{validationError}</p>}
           <button
+            disabled={btnDsb}
             type="submit"
             className={`login-page__submit-btn auth__btn-sbmt ${
-              !isFormValid() ? 'auth__btn-sbmt-disabled' : ''
+              btnDsb ? 'auth__btn-sbmt-disabled' : ''
             }`}
-            disabled={!isFormValid()}
           >
             Войти
           </button>

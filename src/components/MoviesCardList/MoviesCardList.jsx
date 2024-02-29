@@ -49,7 +49,7 @@ const MoviesCardList = ({
     <section className="movies-list">
       <ul className="movies-list__films">
         {movies
-          .slice(0, pathname === '/movies' ? cardsCount : movies.length)
+          ?.slice(0, pathname === '/movies' ? cardsCount : movies.length)
           .map((item) => (
             <MoviesCard
               movie={item}

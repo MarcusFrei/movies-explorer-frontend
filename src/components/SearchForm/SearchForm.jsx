@@ -14,11 +14,9 @@ const SearchForm = ({
   const [inputText, setInputText] = useState('');
   const [checkboxValue, setCheckBoxValue] = useState(false);
   const { pathname } = useLocation();
+  const [firsRender, setFirstRender] = useState(false);
 
   useEffect(() => {
-    if (pathname === '/movies') {
-      fetchMovies();
-    }
     if (pathname === '/saved-movies') {
       handleSetSavedMoovies(filterMovies(moviesCopy, inputText, checkboxValue));
     }
@@ -38,24 +36,34 @@ const SearchForm = ({
   const handleOnChangeCheckbox = (e) => {
     setCheckBoxValue(e.target.checked);
     localStorage.setItem('isShort', e.target.checked);
+    if (pathname === '/movies') {
+      if (inputText.trim() === '') {
+        handleSetMoovies([]);
+        return;
+      }
+      fetchMovies();
+    }
   };
 
   useEffect(() => {
     if (pathname === '/movies') {
       const searchText = localStorage.getItem('searchText');
-      const data = JSON.parse(localStorage.getItem('movies'));
       const isShort = localStorage.getItem('isShort') === 'true';
       if (searchText) setInputText(searchText);
       if (isShort) setCheckBoxValue(true);
-      else setCheckBoxValue(false);
+      setFirstRender(true);
+      const data = JSON.parse(localStorage.getItem('movies'));
       if (data) handleSetMoovies(data);
     }
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (pathname === '/movies') {
-      fetchMovies();
+      if (inputText.trim() === '') {
+        handleSetMoovies([]);
+      } else fetchMovies();
     }
     if (pathname === '/saved-movies') {
       handleSetSavedMoovies(filterMovies(moviesCopy, inputText, checkboxValue));
