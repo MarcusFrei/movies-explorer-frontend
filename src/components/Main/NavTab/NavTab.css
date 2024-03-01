@@ -1,4 +1,4 @@
-.navtab_link {
+.navtab__link {
   margin: 0 5px;
   border-radius: 10px;
   background: #303030;
@@ -10,4 +10,20 @@
   line-height: 16px;
   width: 96px;
   display: inline-block;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+@media screen and (max-width: 719px) {
+  .navtab__link {
+    margin: 0 3px;
+    padding: 5px 15.5px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0px;
+    border-radius: 6px;
+    width: 82px;
+  }
 }

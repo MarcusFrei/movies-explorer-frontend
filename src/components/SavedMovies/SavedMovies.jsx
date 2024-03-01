@@ -1,34 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import './Movies.css';
 
-const Movies = ({
+const SavedMovies = ({
   movies,
-  addMovie,
-  savedMovies,
-  moviesCopy,
-  findIdToDelete,
+  fetchSavedMoview,
   deleteMovie,
-  isInSaved,
+  handleSetSavedMoovies,
+  moviesCopy,
   isMooviesLoading,
-  fetchMovies,
-  handleSetMoovies,
 }) => {
+  useEffect(() => {
+    return () => handleSetSavedMoovies(moviesCopy);
+  }, []);
   return (
     <div className="movies">
       <SearchForm
-        moviesCopy={moviesCopy}
         movies={movies}
-        fetchMovies={fetchMovies}
-        handleSetMoovies={handleSetMoovies}
+        handleSetSavedMoovies={handleSetSavedMoovies}
+        moviesCopy={moviesCopy}
+        fetchSavedMoview={fetchSavedMoview}
       />
+
       <MoviesCardList
         movies={movies}
-        findIdToDelete={findIdToDelete}
-        addMovie={addMovie}
-        isInSaved={isInSaved}
-        savedMovies={savedMovies}
         deleteMovie={deleteMovie}
         isMooviesLoading={isMooviesLoading}
       />
@@ -36,4 +31,4 @@ const Movies = ({
   );
 };
 
-export default Movies;
+export default SavedMovies;
